@@ -473,3 +473,4 @@ class ReportGenerator:
         
         return "\n".join(lines)
 
+

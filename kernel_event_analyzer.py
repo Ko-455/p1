@@ -304,3 +304,4 @@ class KernelEventAnalyzer:
         
         print(f"[ANALYZER] Анализ ядра сохранён: {log_file}")
 
+

@@ -209,3 +209,4 @@ class ResourceMonitor:
         """Возвращает все собранные данные."""
         return self.monitoring_data
 
+
