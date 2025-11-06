@@ -1,0 +1,43 @@
+# SSH приватные ключи
+id_rsa
+id_ed25519
+*.pem
+*.key
+*_rsa
+*_ed25519
+
+# SSH known_hosts
+known_hosts
+
+# Логи
+*.log
+
+# Временные файлы
+*.tmp
+*.temp
+~*
+
+# OS файлы
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Пароли и конфигурации
+*password*
+*secret*
+credentials.txt
+
+# Системные директории Windows
+AppData/
+.cursor/
+.rustup/
+.wdm/
+.vscode/
+*.bin
+

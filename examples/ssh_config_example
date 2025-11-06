@@ -1,0 +1,57 @@
+# Пример конфигурационного файла ~/.ssh/config
+# Этот файл упрощает подключение к часто используемым серверам
+
+# Основной сервер
+Host mainserver
+    HostName 192.168.1.100
+    User alex
+    Port 22
+    IdentityFile ~/.ssh/id_rsa
+    
+# Сервер разработки
+Host devserver
+    HostName dev.example.com
+    User developer
+    Port 2222
+    IdentityFile ~/.ssh/id_ed25519
+    ForwardAgent yes
+    
+# Продакшн сервер с дополнительной безопасностью
+Host prodserver
+    HostName prod.example.com
+    User admin
+    Port 22
+    IdentityFile ~/.ssh/prod_key
+    StrictHostKeyChecking yes
+    UserKnownHostsFile ~/.ssh/known_hosts_prod
+    
+# Сервер через прокси/jump host
+Host internal-server
+    HostName 10.0.0.50
+    User user
+    ProxyJump mainserver
+    IdentityFile ~/.ssh/id_rsa
+
+# Глобальные настройки для всех хостов
+Host *
+    # Держать соединение активным
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+    
+    # Переиспользование существующих соединений
+    ControlMaster auto
+    ControlPath ~/.ssh/sockets/%r@%h-%p
+    ControlPersist 600
+    
+    # Отключение проверки IP для локальных сетей
+    # CheckHostIP no
+    
+    # Сжатие данных
+    Compression yes
+    
+# Использование:
+# Вместо: ssh alex@192.168.1.100
+# Просто: ssh mainserver
+#
+# Все настройки из этого файла будут автоматически применены
+
